@@ -15,7 +15,7 @@ stages:
     outs:
     - data/interim
   feature_engineering:
-    cmd: python src/datas/feature_engineering.py
+    cmd: python src/features/feature_engineering.py
     deps:
     - data/interim
     - src/features/feature_engineering.py
@@ -38,6 +38,4 @@ stages:
     - models/model.pkl
     - src/model/model_evaluation.py
     metrics:
-    - metrics.json
-    outs:
     - reports/metrics.json

@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 from sklearn.ensemble import GradientBoostingClassifier
 import yaml
-
+import logging
 # configure logging
 
 logger = logging.getLogger('model_building_log')

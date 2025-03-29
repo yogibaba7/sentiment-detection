@@ -66,7 +66,7 @@ def save_data(path: str, train_data: pd.DataFrame, test_data: pd.DataFrame) -> N
     try:
         logger.debug('creating a directory')
         # make a directory/folder
-        #os.makedirs(path, exist_ok=True)
+        os.makedirs(path, exist_ok=True)
         logger.debug('directory created sucessfully')
         # save the train and test data
         logger.debug('saving data in created directory')

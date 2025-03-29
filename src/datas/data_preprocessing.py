@@ -111,7 +111,7 @@ def join_words(text: list) -> str:
 # save data
 def save_data(path: str, train_data: pd.DataFrame, test_data: pd.DataFrame) -> None:
     try:
-        #os.makedirs(path, exist_ok=True)
+        os.makedirs(path, exist_ok=True)
         train_data.to_csv(os.path.join(path, 'train_preprocessed.csv'), index=False)
         test_data.to_csv(os.path.join(path, 'test_preprocessed.csv'), index=False)
         print(f"Preprocessed data saved successfully in '{path}'")

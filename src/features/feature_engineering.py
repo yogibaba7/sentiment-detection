@@ -88,7 +88,7 @@ def bagofwords(max_features: int, x_train: pd.DataFrame, y_train: pd.DataFrame, 
 def save_data(path: str, train_data: pd.DataFrame, test_data: pd.DataFrame) -> None:
     try:
         logger.debug('saving the data')
-        #os.makedirs(path, exist_ok=True)
+        os.makedirs(path, exist_ok=True)
         train_data.to_csv(os.path.join(path, 'train_bow.csv'), index=False)
         test_data.to_csv(os.path.join(path, 'test_bow.csv'), index=False)
         logger.debug(f"Data saved successfully in '{path}'")

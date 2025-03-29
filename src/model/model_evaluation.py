@@ -4,7 +4,7 @@ import pickle
 import json
 from sklearn.metrics import precision_score, recall_score, accuracy_score, roc_auc_score
 from sklearn.ensemble import GradientBoostingClassifier
-
+import logging
 # configure logging
 
 logger = logging.getLogger('model_evaluation_log')
