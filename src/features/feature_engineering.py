@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import os
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 import yaml
 import logging
 
@@ -60,11 +60,11 @@ def dropnull(data: pd.DataFrame) -> pd.DataFrame:
         return data
 
 
-# apply bag of words (CountVectorizer)
-def bagofwords(max_features: int, x_train: pd.DataFrame, y_train: pd.DataFrame, x_test: pd.DataFrame, y_test: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+# apply tfidfvectorizer
+def tfvectorizer(max_features: int, x_train: pd.DataFrame, y_train: pd.DataFrame, x_test: pd.DataFrame, y_test: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     try:
         logger.debug('applying bag of words')
-        vectorizer = CountVectorizer(max_features=max_features)
+        vectorizer = TfidfVectorizer(max_features=max_features)
         x_train_bow = vectorizer.fit_transform(x_train)
         x_test_bow = vectorizer.transform(x_test)
 
@@ -117,7 +117,7 @@ def main():
         X_test = test_data['content'].values
         y_test = test_data['sentiment'].values
 
-        train_data, test_data = bagofwords(max_features, X_train, y_train, X_test, y_test)
+        train_data, test_data = tfvectorizer(max_features, X_train, y_train, X_test, y_test)
 
         file_path = os.path.join('data', 'processed')
         save_data(file_path, train_data, test_data)
